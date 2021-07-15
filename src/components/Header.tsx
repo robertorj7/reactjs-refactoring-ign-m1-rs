@@ -5,5 +5,9 @@ interface HeaderProps {
 }
 
 export function Header(props: HeaderProps) {  
-  return <span className="category">Categoria:<span> {props.selectedGenre.title}</span></span>  
+  return (
+    <header>
+      <span className="category">Categoria:<span> {props.selectedGenre.title}</span></span>  
+    </header>
+  )
 }

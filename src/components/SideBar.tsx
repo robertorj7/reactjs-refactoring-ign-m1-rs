@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GenreResponseProps } from "../App";
 import { api } from "../services/api";
 import { Button } from "./Button";
 
 interface SideBarProps {
   selectedGenreId: number;
+  handleClickButton(id: number): void;
 }
 
 export function SideBar(props: SideBarProps) {
@@ -26,12 +27,11 @@ export function SideBar(props: SideBarProps) {
           key={String(genre.id)}
           title={genre.title}
           iconName={genre.name}
-          onClick={() => handleClickButton(genre.id)}
+          onClick={() => props.handleClickButton(genre.id)}
           selected={props.selectedGenreId === genre.id}
         />
       ))}
     </div>
-
   </nav>
   )
 }
